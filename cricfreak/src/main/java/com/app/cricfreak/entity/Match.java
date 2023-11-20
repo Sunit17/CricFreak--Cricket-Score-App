@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.Instant;
 import java.util.Date;
 
 
@@ -21,24 +22,18 @@ public class Match {
 
     private String teamHeading;
     private String matchNumberVenue;
-
     private String battingTeam;
-
     private String battingTeamScore;
-
     private String bowlTeam;
     private String bowlTeamScore;
-
     private String liveText;
-
     private String matchLink;
-
     private String textComplete;
-
     @Enumerated
     private MatchStatus status;
 
-    private Date date=new Date();
+    @Column(columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
+    private Instant date;
 
     public void setMatchStatus()
     {
